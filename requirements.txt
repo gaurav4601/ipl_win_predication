@@ -1,2 +1,4 @@
 pandas==1.5.2
 streamlit==1.17.0
+pickle==4.0
+Python==3.10.9
