@@ -2,8 +2,17 @@ import streamlit as st
 import pickle as pkl
 import pandas as pd
 
+button_style = '''
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+'''
 
-teams = ['Sunrisers Hyderabad',
+
+teams = ['','Sunrisers Hyderabad',
  'Mumbai Indians',
  'Royal Challengers Bangalore',
  'Kolkata Knight Riders',
@@ -13,7 +22,7 @@ teams = ['Sunrisers Hyderabad',
  'Delhi Capitals']
 
 
-cities = ['Kolkata', 'Bangalore', 'Mumbai', 'Delhi', 'Jaipur', 'Sharjah',
+cities = ['','Kolkata', 'Bangalore', 'Mumbai', 'Delhi', 'Jaipur', 'Sharjah',
        'Centurion', 'Mohali', 'Hyderabad', 'Johannesburg', 'Dharamsala',
        'Chandigarh', 'East London', 'Chennai', 'Ahmedabad', 'Durban',
        'Bloemfontein', 'Visakhapatnam', 'Ranchi', 'Bengaluru',
@@ -48,7 +57,7 @@ with col5:
 
 
 if batting_team==bowling_team:
-    st.text('Batting Team and Bowling Team Cannot be Same')
+    st.markdown('##### Batting Team and Bowling Team Cannot be Same')
 elif st.button('Predict'):
     runs_left = target - score
     balls_left = 120 - overs*6
@@ -63,9 +72,19 @@ elif st.button('Predict'):
 
     loss = result[0][0]
     win = result[0][1]
+    st.write('''
+    
 
-    st.text(batting_team+ '-' + str(round(win*100))+'%')
-    st.text(bowling_team+ '-' + str(round(loss*100))+'%')
+
+
+
+
+    
+    
+    ''')
+    st.markdown(f"##### {batting_team} "+ '- ' + str(round(win*100))+'%')
+    st.markdown(f"##### {bowling_team} "+ '- ' + str(round(loss*100))+'%')
+    
 
 
 
